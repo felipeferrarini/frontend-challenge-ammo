@@ -6,11 +6,17 @@ type HookKeys = keyof ReturnType<typeof useSearchProductsBase>;
 const mockedHook: Record<HookKeys, jest.Mock> = {
   products: jest.fn().mockReturnValue(productsFactory()),
   isLoading: jest.fn().mockReturnValue(false),
-  itemsPerPage: jest.fn().mockReturnValue(10),
-  page: jest.fn().mockReturnValue(1),
+  isError: jest.fn().mockReturnValue(false),
+  isFetching: jest.fn().mockReturnValue(false),
   onClear: jest.fn(),
   onSearch: jest.fn(),
-  search: jest.fn().mockReturnValue('')
+  onItemsPerPageChange: jest.fn(),
+  onPageChange: jest.fn(),
+  search: jest.fn().mockReturnValue(''),
+  itemsPerPage: jest.fn().mockReturnValue(25),
+  page: jest.fn().mockReturnValue(1),
+  totalPages: jest.fn().mockReturnValue(10),
+  totalItems: jest.fn().mockReturnValue(100)
 };
 
 export const useSearchProducts = jest.fn().mockReturnValue(mockedHook);

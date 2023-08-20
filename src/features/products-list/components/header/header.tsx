@@ -22,7 +22,14 @@ export const Header = (): JSX.Element => {
   });
 
   return (
-    <Navbar position="static" className="bg-default-300 py-3">
+    <Navbar
+      position="static"
+      className="bg-primary-300/50 py-3"
+      classNames={{
+        wrapper:
+          'flex flex-col md:flex-row items-center justify-between h-max md:h-[var(--navbar-height)]'
+      }}
+    >
       <NavbarBrand className="w-max flex-grow">
         <Image
           width={170}
@@ -50,8 +57,9 @@ export const Header = (): JSX.Element => {
               size="lg"
               type="search"
               onClear={onClear}
+              data-testid="search-input"
             />
-            <Button color="primary" size="lg">
+            <Button color="primary" size="lg" type="submit">
               Buscar
             </Button>
           </ButtonGroup>
