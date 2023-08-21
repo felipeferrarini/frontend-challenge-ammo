@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useCallback } from 'react';
 
 export const useSearchProducts = () => {
-  const { deleteParam, getParam, setParam } = useRouteParams();
+  const { deleteParam, getParam, setParam, setParams } = useRouteParams();
 
   const search = getParam('search') || '';
   const page = Number(getParam('page') || '1');
@@ -23,11 +23,8 @@ export const useSearchProducts = () => {
   }, [deleteParam]);
 
   const onSearch = useCallback(
-    (search: string) => {
-      setParam('search', search);
-      setParam('page', '1');
-    },
-    [setParam]
+    (search: string) => setParams({ search, page: '1' }),
+    [setParams]
   );
 
   const onPageChange = useCallback(

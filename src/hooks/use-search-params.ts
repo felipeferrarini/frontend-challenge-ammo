@@ -28,9 +28,22 @@ export const useRouteParams = () => {
     [params, pathname, router]
   );
 
+  const setParams = useCallback(
+    (params: Record<string, string>) => {
+      const newParams = new URLSearchParams();
+      Object.entries(params).forEach(([key, value]) =>
+        newParams.set(key, value)
+      );
+
+      router.push(`${pathname}?${newParams}`);
+    },
+    [pathname, router]
+  );
+
   return {
     getParam: params.get.bind(params),
     setParam,
-    deleteParam
+    deleteParam,
+    setParams
   };
 };

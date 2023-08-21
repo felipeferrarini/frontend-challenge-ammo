@@ -61,4 +61,16 @@ describe('useRouteParams', () => {
 
     expect(value).toBe('existingValue');
   });
+
+  it('should set multiple query parameters', () => {
+    const { pushMock } = mockRouter('/test-path');
+    const { result } = renderHook(() => useRouteParams());
+
+    result.current.setParams({
+      key1: 'value1',
+      key2: 'value2'
+    });
+
+    expect(pushMock).toHaveBeenCalledWith('/test-path?key1=value1&key2=value2');
+  });
 });
