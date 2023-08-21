@@ -2,7 +2,7 @@
 
 Este projeto foi desenvolvido como parte do desafio para a posição de Desenvolvedor Fullstack na Ammo Varejo.
 
-A aplicação está implantada na [Vercel](https://vercel.com/) e pode ser acessada através deste [link](https://).
+A aplicação está implantada na [Vercel](https://vercel.com/) e pode ser acessada através deste [link](https://frontend-challenge-ammo.vercel.app/).
 
 ## 🚀 Tecnologias Utilizadas
 
