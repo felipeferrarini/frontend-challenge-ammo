@@ -23,7 +23,10 @@ export const useSearchProducts = () => {
   }, [deleteParam]);
 
   const onSearch = useCallback(
-    (search: string) => setParam('search', search),
+    (search: string) => {
+      setParam('search', search);
+      setParam('page', '1');
+    },
     [setParam]
   );
 
